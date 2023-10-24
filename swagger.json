@@ -5,6 +5,7 @@
         "version": "1.0.0",
         "description": "A small system to manage your basic school needs"
     },
+    "host": "https://schoolmanagement-challenge.onrender.com",
     "paths": {
         "/schools": {
             "get": {
