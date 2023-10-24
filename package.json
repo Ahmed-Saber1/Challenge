@@ -1,0 +1,20 @@
+{
+  "name": "schoolmanagment",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "dependencies": {
+    "ajv": "^8.12.0",
+    "bcrypt": "^5.0.1",
+    "express": "^4.16.4",
+    "generate-unique-id": "^2.0.3",
+    "http-errors": "^1.6.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.6",
+    "morgan": "^1.9.1",
+    "swagger-parser": "^8.0.4",
+    "uuid": "^9.0.1"
+  }
+}
