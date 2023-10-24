@@ -3,12 +3,12 @@ const app = express()
 const port = process.env.PORT;
 const router = require('./routes')
 const { connectDB } = require('./config/dbConfig');
-const { setSwagger } = require('./utils/utils');
+const { init } = require('./utils/utils');
 
 async function run() {
   try {
     connectDB();
-    setSwagger();
+    init();
     app.use(router)
     app.listen(port, () => {
         console.log(`Listening on port ${port}`);

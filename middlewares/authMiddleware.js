@@ -1,14 +1,14 @@
 const jws = require('jsonwebtoken'); 
 const Ajv = require('ajv');
 const { checkIfIdExists } = require('../controllers/api');
-const { getSwagger } = require('../utils/utils');
-const secret = process.env.SECRET;
+const { getSwagger, getSecret } = require('../utils/utils');
 
 function authRequest (req, res, next) {
     const authorization = req.headers.authorization;
     if (!authorization) return res.status(401).json({msg: "Unauthorized Request"});
     
     try{
+        const secret = getSecret();
         const token = authorization.split(' ')[1];
         const user = jws.verify(token, secret);
         if (req.params.collection.toLowerCase() != 'users' && 
@@ -35,9 +35,9 @@ async function validate(req, res, next){
         const api = getSwagger();
         let paths = api.paths;
         let schema;
-        if(req.params.id) schema = paths[`/${req.params.collection}/{id}`][req.method.toLowerCase()]['requestBody']['content']['application/json']['schema']['content']['application/json'].schema;
-        else schema = paths[`/${req.params.collection}`][req.method.toLowerCase()]['requestBody']['content']['application/json']['schema']['content']['application/json'].schema;
-        
+        if(req.params.id) schema = paths[`/${req.params.collection}/{id}`][req.method.toLowerCase()]['parameters'][0].schema;
+        else schema = paths[`/${req.params.collection}`][req.method.toLowerCase()]['parameters'][0].schema
+       
         if(schema){
             // Ajv is a swagger validator to ensure all required fields are present in the request body.
             const ajv = new Ajv({ allErrors: true, strict: false });

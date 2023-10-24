@@ -3,7 +3,7 @@ const { userDto } = require('../dto/userDto');
 const bcrypt = require('bcrypt');
 const generateUniqueId = require('generate-unique-id');
 const jwt = require('jsonwebtoken');
-const secret = process.env.SECRET || "LookAtMe";
+const { getSecret } = require('../utils/utils');
 
 async function createAccount(req, res) {
     try{
@@ -37,13 +37,14 @@ async function getToken(req,res) {
         const credentials = Buffer.from(req.headers.authorization.split(" ")[1], 'base64').toString();
         const id = credentials.split(':')[0];
         const password = credentials.split(':')[1];
-    
+        
         var user = await USER.findOne({id});
         if(!user) return res.status(400).json({msg: "Username or Password is not matching."});
-    
+        
         const isValidPassword = bcrypt.compareSync(password, user.password);
         if(!isValidPassword)  return res.status(400).json({msg: "Username or password is not matching."});
-    
+        
+        const secret = getSecret();
         user = userDto(user);
         const token = jwt.sign(user, secret, { expiresIn: '1h' });
     

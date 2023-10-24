@@ -9,7 +9,7 @@
         "/schools": {
             "get": {
                 "tags": [
-                    "Schools"
+                    "/schoolManagement"
                 ],
                 "summary": "Find schools",
                 "description": "Returns schools",
@@ -53,32 +53,23 @@
             },
             "post": {
                 "tags": [
-                    "Schools"
+                    "/schoolManagement"
                 ],
                 "summary": "Posts school",
                 "description": "Returns the posted school",
                 "produces": [
                     "application/json"
                 ],
-                "parameters": [],
-                "requestBody": {
-					"description": "Post school body",
-					"content": {
-						"application/json": {
-							"schema": {
-								"description": "Schema for creating a school",
-								"content": {
-                                    "application/json": {
-                                        "schema": {
-                                            "$ref": "#/definitions/School"
-                                        }
-                                    }
-                                },					
-								"additionalProperties": false
-							}
-						}
-					}
-				},
+                "parameters": [
+                    {   
+                        "in": "body",
+                        "name": "requestBody",
+                        "description": "Schema for creating a school",
+                        "schema": {
+                            "$ref": "#/definitions/School"
+                        }
+                    }
+                ],
                 "responses": {
                     "201": {
                         "description": "successful operation",                      
@@ -98,7 +89,7 @@
         "/schools/{id}": {
             "get": {
                 "tags": [
-                    "Schools"
+                    "/schoolManagement"
                 ],
                 "summary": "Find school",
                 "description": "Returns school",
@@ -131,7 +122,7 @@
             },
             "patch": {
                 "tags": [
-                    "Schools"
+                    "/schoolManagement"
                 ],
                 "summary": "Updates school",
                 "description": "Returns the updated school",
@@ -139,6 +130,14 @@
                     "application/json"
                 ],
                 "parameters": [
+                    {   
+                        "in": "body",
+                        "name": "requestBody",
+                        "description": "Schema for updating a school",
+                        "schema": {
+                            "$ref": "#/definitions/School"
+                        }
+                    },
                     {
                         "name": "id",
                         "in": "path",
@@ -147,24 +146,6 @@
                         "type": "string"
                     }
                 ],
-                "requestBody": {
-					"description": "Update school body",
-					"content": {
-						"application/json": {
-							"schema": {
-								"description": "Schema for updating a school",
-								"content": {
-                                    "application/json": {
-                                        "schema": {
-                                            "$ref": "#/definitions/School"
-                                        }
-                                    }
-                                },					
-								"additionalProperties": false
-							}
-						}
-					}
-				},
                 "responses": {
                     "200": {
                         "description": "successful operation",                      
@@ -182,7 +163,7 @@
             },
             "delete": {
                 "tags": [
-                    "Schools"
+                    "/schoolManagement"
                 ],
                 "summary": "Delete school",
                 "description": "Returns deleted school",
@@ -217,7 +198,7 @@
         "/classrooms": {
             "get": {
                 "tags": [
-                    "Classrooms"
+                    "/schoolManagement"
                 ],
                 "summary": "Find classrooms",
                 "description": "Returns classrooms",
@@ -261,32 +242,23 @@
             },
             "post": {
                 "tags": [
-                    "Classrooms"
+                    "/schoolManagement"
                 ],
                 "summary": "Posts classroom",
                 "description": "Returns the posted classroom",
                 "produces": [
                     "application/json"
                 ],
-                "parameters": [],
-                "requestBody": {
-					"description": "Post classroom body",
-					"content": {
-						"application/json": {
-							"schema": {
-								"description": "Schema for creating a classroom",
-								"content": {
-                                    "application/json": {
-                                        "schema": {
-                                            "$ref": "#/definitions/Classrooms"
-                                        }
-                                    }
-                                },					
-								"additionalProperties": false
-							}
-						}
-					}
-				},
+                "parameters": [
+                    {   
+                        "in": "body",
+                        "name": "requestBody",
+                        "description": "Schema for creating a classroom",
+                        "schema": {
+                            "$ref": "#/definitions/Classrooms"
+                        }
+                    }
+                ],
                 "responses": {
                     "201": {
                         "description": "successful operation",
@@ -306,7 +278,7 @@
         "/classrooms/{id}": {
             "get": {
                 "tags": [
-                    "Classrooms"
+                    "/schoolManagement"
                 ],
                 "summary": "Find classroom",
                 "description": "Returns classroom",
@@ -339,7 +311,7 @@
             },
             "patch": {
                 "tags": [
-                    "Classrooms"
+                    "/schoolManagement"
                 ],
                 "summary": "Updates classroom",
                 "description": "Returns the updated classroom",
@@ -347,6 +319,14 @@
                     "application/json"
                 ],
                 "parameters": [
+                    {   
+                        "in": "body",
+                        "name": "requestBody",
+                        "description": "Schema for updating a classroom",
+                        "schema": {
+                            "$ref": "#/definitions/Classrooms"
+                        }
+                    },
                     {
                         "name": "id",
                         "in": "path",
@@ -355,24 +335,6 @@
                         "type": "string"
                     }
                 ],
-                "requestBody": {
-					"description": "Update classroom body",
-					"content": {
-						"application/json": {
-							"schema": {
-								"description": "Schema for updating a classroom",
-								"content": {
-                                    "application/json": {
-                                        "schema": {
-                                            "$ref": "#/definitions/Classrooms"
-                                        }
-                                    }
-                                },					
-								"additionalProperties": false
-							}
-						}
-					}
-				},
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -390,7 +352,7 @@
             },
             "delete": {
                 "tags": [
-                    "Classrooms"
+                    "/schoolManagement"
                 ],
                 "summary": "Delete classroom",
                 "description": "Returns deleted classroom",
@@ -425,7 +387,7 @@
         "/students": {
             "get": {
                 "tags": [
-                    "Students"
+                    "/schoolManagement"
                 ],
                 "summary": "Find students",
                 "description": "Returns students",
@@ -469,32 +431,23 @@
             },
             "post": {
                 "tags": [
-                    "Students"
+                    "/schoolManagement"
                 ],
                 "summary": "Posts student",
                 "description": "Returns the posted student",
                 "produces": [
                     "application/json"
                 ],
-                "parameters": [],
-                "requestBody": {
-					"description": "Post students body",
-					"content": {
-						"application/json": {
-							"schema": {
-								"description": "Schema for creating a students",
-								"content": {
-                                    "application/json": {
-                                        "schema": {
-                                            "$ref": "#/definitions/Students"
-                                        }
-                                    }
-                                },					
-								"additionalProperties": false
-							}
-						}
-					}
-				},
+                "parameters": [
+                    {   
+                        "in": "body",
+                        "name": "requestBody",
+                        "description": "Schema for creating a student",
+                        "schema": {
+                            "$ref": "#/definitions/Students"
+                        }
+                    }
+                ],
                 "responses": {
                     "201": {
                         "description": "successful operation",
@@ -514,7 +467,7 @@
         "/students/{id}": {
             "get": {
                 "tags": [
-                    "Students"
+                    "/schoolManagement"
                 ],
                 "summary": "Find student",
                 "description": "Returns student",
@@ -547,7 +500,7 @@
             },
             "patch": {
                 "tags": [
-                    "Students"
+                    "/schoolManagement"
                 ],
                 "summary": "Updates student",
                 "description": "Returns the updated student",
@@ -555,6 +508,14 @@
                     "application/json"
                 ],
                 "parameters": [
+                    {   
+                        "in": "body",
+                        "name": "requestBody",
+                        "description": "Schema for updating a student",
+                        "schema": {
+                            "$ref": "#/definitions/Students"
+                        }
+                    },
                     {
                         "name": "id",
                         "in": "path",
@@ -563,24 +524,6 @@
                         "type": "string"
                     }
                 ],
-                "requestBody": {
-					"description": "Update studentId body",
-					"content": {
-						"application/json": {
-							"schema": {
-								"description": "Schema for updating a studentId",
-								"content": {
-                                    "application/json": {
-                                        "schema": {
-                                            "$ref": "#/definitions/Students"
-                                        }
-                                    }
-                                },					
-								"additionalProperties": false
-							}
-						}
-					}
-				},
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -598,7 +541,7 @@
             },
             "delete": {
                 "tags": [
-                    "Students"
+                    "/schoolManagement"
                 ],
                 "summary": "Delete student",
                 "description": "Returns deleted student",
@@ -629,6 +572,76 @@
                     }
                 }
             }
+        },
+        "/createAccount": {
+            "post": {
+                "tags": [
+                    "/auth"
+                ],
+                "summary": "Creates an account for testing",
+                "description": "Returns the account's details",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {   
+                        "in": "body",
+                        "name": "requestBody",
+                        "description": "Schema for creating an account",
+                        "schema": {
+                            "$ref": "#/definitions/Account"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/responses/AccountResponse"
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/responses/Unauthorized"
+                    },
+                    "500": {
+                        "$ref": "#/responses/InternalError"
+                    }
+                }
+            }  
+        },
+        "/getToken": {
+            "get": {
+                "tags": [
+                    "/auth"
+                ],
+                "summary": "Return token",
+                "description": "Return jwt token",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "type": "string",
+                        "description": "Basic Auth with the Username: id from /CreateAccount and your chosen password"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/responses/GetToken"
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/responses/Unauthorized"
+                    },
+                    "500": {
+                        "$ref": "#/responses/InternalError"
+                    }
+                }
+            }  
         },
         "/status": {
             "get": {
@@ -687,8 +700,7 @@
             "description": "Classrooms",
             "required": [
                 "name",
-                "schoolId",
-                "capacity"
+                "schoolId"
             ],
             "properties": {
                 "id": {
@@ -705,11 +717,6 @@
                     "type": "string",
                     "example": "23",
                     "description": "School's Id"
-                },
-                "capacity": {
-                    "type": "string",
-                    "example": "25",
-                    "description": "Classrooms's capacity"
                 },
                 "createdAt": {
                     "type": "string",
@@ -770,6 +777,99 @@
                 }
             }
         },
+        "Account": {
+            "type": "object",
+            "description": "Account",
+            "required": [
+                "name",
+                "password",
+                "role"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "example": "123456",
+                    "description": "Account's id"
+                },
+                "name": {
+                    "type": "string",
+                    "example": "Ahmed Saber",
+                    "description": "Account's name"
+                },
+                "password": {
+                    "type": "string",
+                    "example": "987654321",
+                    "description": "Account's password"
+                },
+                "role": {
+                    "type": "string",
+                    "example": "admin",
+                    "description": "Account's role",
+                    "enum": ["admin", "superAdmin"]
+                },
+                "createdAt": {
+                    "type": "string",
+                    "description": "Account's creation date",
+                    "example": "2023-10-24T00:00:00"
+                }
+            }
+        },
+        "AccountResponse": {
+            "type": "object",
+            "description": "Account",
+            "required": [
+                "name",
+                "role"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "example": "123456",
+                    "description": "Account's id"
+                },
+                "name": {
+                    "type": "string",
+                    "example": "Ahmed Saber",
+                    "description": "Account's name"
+                },
+                "role": {
+                    "type": "string",
+                    "example": "admin",
+                    "description": "Account's role",
+                    "enum": ["admin", "superAdmin"]
+                },
+                "createdAt": {
+                    "type": "string",
+                    "description": "Account's creation date",
+                    "example": "2023-10-24T00:00:00"
+                }
+            }
+        },
+        "GetToken": {
+            "type": "object",
+            "description": "Token",
+            "required": [
+                "token",
+                "expiresIn"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "example": "123456",
+                    "description": "Account's id"
+                },
+                "token": {
+                    "type": "string",
+                    "example": "eyJhbGciOiJIU",
+                    "description": "jwt token"
+                },
+                "expiresIn": {
+                    "type": "string",
+                    "example": "60 mins",
+                    "description": "Active duartion"
+                }
+            }
+        },
         "Status": {
             "type": "object",
             "description": "API Status",
@@ -812,24 +912,33 @@
         }
     },
     "responses": {
+        "AccountResponse":{
+            "description": "The Account Response",
+            "schema": {
+                "$ref": "#/definitions/AccountResponse"
+            }
+        },
+        "GetToken":{
+            "description": "The Token Response",
+            "schema": {
+                "$ref": "#/definitions/GetToken"
+            }
+        },
         "Unauthorized": {
             "description": "The requester is unauthorized.",
             "schema": {
-                "description": "The requester is unauthorized.",
                 "$ref": "#/definitions/Error"
             }
         },
         "NotFound": {
             "description": "Resource not found.",
             "schema": {
-                "description": "Resource not found.",
                 "$ref": "#/definitions/Error"
             }
         },
         "InternalError": {
             "description": "Internal Server Error.",
             "schema": {
-                "description": "Internal Server Error.",
                 "$ref": "#/definitions/Error"
             }
         }
