@@ -2,7 +2,7 @@ const jws = require('jsonwebtoken');
 const Ajv = require('ajv');
 const { checkIfIdExists } = require('../controllers/api');
 const { getSwagger } = require('../utils/utils');
-const secret = process.env.SECRET || "LookAtMe";
+const secret = process.env.SECRET;
 
 function authRequest (req, res, next) {
     const authorization = req.headers.authorization;
